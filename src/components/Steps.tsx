@@ -23,7 +23,7 @@ const STEPS = [
 
 export default function Steps() {
   return (
-    <section className="py-14 lg:py-20 bg-snow border-y border-coral-100/70">
+    <section className="py-14 lg:py-20 bg-paper border-y border-amber-100/70">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {STEPS.map((step, idx) => (
@@ -36,13 +36,13 @@ export default function Steps() {
               className="flex gap-4"
             >
               <div className="flex flex-col items-center">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-coral-50 text-coral-600 shrink-0">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-amber-50 text-amber-600 shrink-0">
                   <step.icon className="w-5 h-5" />
                 </span>
-                {idx < STEPS.length - 1 && <span className="w-px flex-1 bg-coral-100 mt-2 hidden md:block" aria-hidden="true" />}
+                {idx < STEPS.length - 1 && <span className="w-px flex-1 bg-amber-100 mt-2 hidden md:block" aria-hidden="true" />}
               </div>
               <div>
-                <p className="font-data text-[10px] uppercase tracking-[0.22em] text-coral-500 mb-1">Step 0{idx + 1}</p>
+                <p className="font-data text-[10px] uppercase tracking-[0.22em] text-amber-500 mb-1">Step 0{idx + 1}</p>
                 <h3 className="font-display text-lg text-ink mb-1.5">{step.title}</h3>
                 <p className="text-sm text-ink/65 leading-relaxed">{step.text}</p>
               </div>

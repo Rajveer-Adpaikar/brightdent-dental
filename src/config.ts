@@ -115,12 +115,6 @@ export const CLINIC = {
     { q: "Do you offer teeth whitening?", a: "Yes. Professional teeth-whitening treatments are available after an initial dental assessment." },
     { q: "Can I book an appointment through WhatsApp?", a: "Yes. Patients can contact the clinic through WhatsApp to enquire about available appointments." },
   ],
-  beforeAfter: [
-    { category: "Smile Makeover", description: "Cosmetic smile transformation using a combination of aesthetic dental treatments." },
-    { category: "Teeth Whitening", description: "Before-and-after example showing a brighter, more even smile." },
-    { category: "Dental Veneers", description: "Cosmetic transformation using custom-designed dental veneers." },
-    { category: "Composite Bonding", description: "Minor tooth-shape and appearance correction using composite bonding." },
-  ],
 };
 
 export const CONTACT_EMAIL = CLINIC.email;

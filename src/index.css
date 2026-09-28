@@ -1,42 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,600&family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 /*
   BrightDent Dental & Implant Studio — theme
 
-  "The enamel studio": surgical-white surfaces + a single coral accent that
-  carries every warm action. Reads unmistakably as dentistry (enamel, porcelain,
-  sterile-white), and a deliberate break from every sibling demo
-  (rosewood/peach IvoryCare, green/teal PearlSmile, cobalt "azulejo" v1).
+  "Warm care at the white-coat clinic": soft warm paper + oat surfaces, deep
+  walnut-brown text, and a single honey-amber action color. Reads as a warm,
+  welcoming, care-giving dental practice — not techy, not cold. A deliberate
+  break from every sibling demo (rosewood/peach IvoryCare, green/teal
+  PearlSmile, and the cooler "azulejo"/"enamel" v1/v2 experiments).
 
-    --cloud:   cool surgical-white page background
-    --snow:    pure-white panel surface
-    --ink:     soft graphite-navy text
-    --coral:   the single action color — call, book, WhatsApp, accents
-  Type: Sora (display, geometric) · Figtree (body, humanist) · JetBrains Mono (data)
+    --oat:      soft warm off-white page background (#f6f1e7)
+    --paper:    pure warm white panel surface
+    --ink(walnut):  deep warm brown-black text
+    --amber:    the single honey-gold action color — call, book, WhatsApp
+  Type: Andada Pro (display, warm editorial serif) · Nunito Sans (body, warm
+        friendly humanist) · JetBrains Mono (data)
 */
 @theme {
-  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Andada Pro", ui-serif, Georgia, serif;
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Cloud — cool surgical-white page background */
-  --color-cloud: #f5f8fb;
-  /* Snow — pure white panel surface */
-  --color-snow: #ffffff;
-  /* Ink — soft graphite-navy text (reads friendlier than pure black) */
-  --color-ink: #15202e;
-  /* Coral — warm red-orange action accent (hue ~8, distinct from peach/rose/terracotta siblings) */
-  --color-coral-50:  #fdeeee;
-  --color-coral-100: #fbdcdb;
-  --color-coral-200: #f6b9b5;
-  --color-coral-300: #f08c85;
-  --color-coral-400: #e75f54;
-  --color-coral-500: #d93a2e;
-  --color-coral-600: #b3281e;
-  --color-coral-700: #8f2019;
-  --color-coral-800: #6e1a15;
-  --color-coral-900: #4a1210;
+  /* Oat — soft warm off-white page background (NOT cream/sand; warm but muted) */
+  --color-oat: #f6f1e7;
+  /* Paper — pure warm white panel surface */
+  --color-paper: #fffdf8;
+  /* Ink — deep warm walnut-brown text */
+  --color-ink: #2e2418;
+  /* Amber — honey-gold action accent (hue ~36, distinct from coral/rose/terracotta) */
+  --color-amber-50:  #fdf6e8;
+  --color-amber-100: #fcedcd;
+  --color-amber-200: #f8dc9c;
+  --color-amber-300: #f2c466;
+  --color-amber-400: #eba83b;
+  --color-amber-500: #dd9220;
+  --color-amber-600: #b97417;
+  --color-amber-700: #965b12;
+  --color-amber-800: #76460f;
+  --color-amber-900: #532f0b;
 }
 
 html {
@@ -45,16 +47,16 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-cloud);
+  background: var(--color-oat);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Display headings — Sora (geometric, confident) */
+/* Display headings — Andada Pro (warm editorial serif) */
 .font-display {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 /* Data labels — clinical mono */
@@ -80,11 +82,11 @@ body {
 
 /* Visible keyboard focus */
 :focus-visible {
-  outline: 2px solid var(--color-coral-500);
+  outline: 2px solid var(--color-amber-600);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: var(--color-coral-200);
+  background: var(--color-amber-200);
   color: var(--color-ink);
 }

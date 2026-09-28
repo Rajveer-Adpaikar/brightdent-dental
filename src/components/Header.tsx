@@ -17,18 +17,18 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const desktopLink = 'text-sm font-medium text-ink/70 hover:text-coral-600 transition-colors';
+  const desktopLink = 'text-sm font-medium text-ink/70 hover:text-amber-600 transition-colors';
   const mobileLink = 'text-lg font-medium text-ink';
 
   return (
     <>
       {/* Slim top utility bar */}
-      <div className="fixed top-0 inset-x-0 z-50 bg-ink text-cloud/85 text-xs h-9 flex items-center px-6">
+      <div className="fixed top-0 inset-x-0 z-50 bg-ink text-oat/85 text-xs h-9 flex items-center px-6">
         <div className="max-w-7xl w-full mx-auto flex items-center justify-between gap-4">
           <p className="font-data tracking-wide truncate">
             {CLINIC.addressShort}
           </p>
-          <a href={`tel:${CLINIC.phoneHref}`} className="hidden sm:inline-flex items-center gap-1.5 font-semibold text-cloud hover:text-coral-300 transition-colors shrink-0">
+          <a href={`tel:${CLINIC.phoneHref}`} className="hidden sm:inline-flex items-center gap-1.5 font-semibold text-oat hover:text-amber-300 transition-colors shrink-0">
             <Phone className="w-3 h-3" />
             {CLINIC.phone}
           </a>
@@ -37,17 +37,17 @@ export default function Header() {
 
       <header
         className={`fixed top-9 inset-x-0 z-40 transition-all duration-300 ${
-          isScrolled ? 'bg-cloud/90 backdrop-blur-md shadow-sm py-2.5 border-b border-coral-100' : 'bg-transparent py-4'
+          isScrolled ? 'bg-oat/90 backdrop-blur-md shadow-sm py-2.5 border-b border-amber-100' : 'bg-transparent py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <span className="relative flex h-9 w-9 items-center justify-center bg-coral-600 text-cloud rounded-lg group-hover:bg-coral-500 transition-colors">
+            <span className="relative flex h-9 w-9 items-center justify-center bg-amber-500 text-ink rounded-lg group-hover:bg-amber-500 transition-colors">
               <Smile className="w-5 h-4" />
             </span>
             <span className="inline-flex flex-col leading-none">
-              <span className="font-display font-bold text-xl tracking-tight text-ink group-hover:text-coral-700 transition-colors">
+              <span className="font-display font-bold text-xl tracking-tight text-ink group-hover:text-amber-700 transition-colors">
                 BrightDent
               </span>
               <span className="font-data text-[9px] uppercase tracking-[0.22em] text-ink/50 mt-0.5">
@@ -67,11 +67,11 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href={`tel:${CLINIC.phoneHref}`} className="flex items-center gap-2 text-sm font-semibold text-ink/70 hover:text-coral-600 transition-colors">
+            <a href={`tel:${CLINIC.phoneHref}`} className="flex items-center gap-2 text-sm font-semibold text-ink/70 hover:text-amber-600 transition-colors">
               <Phone className="w-4 h-4" />
               {CLINIC.phone}
             </a>
-            <button onClick={() => openBooking()} className="px-5 py-2.5 rounded-lg bg-coral-600 text-cloud text-sm font-semibold hover:bg-coral-500 transition-colors shadow-md shadow-coral-600/20">
+            <button onClick={() => openBooking()} className="px-5 py-2.5 rounded-lg bg-amber-500 text-ink text-sm font-semibold hover:bg-amber-500 transition-colors shadow-md shadow-amber-600/20">
               Book appointment
             </button>
           </div>
@@ -93,7 +93,7 @@ export default function Header() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="absolute top-full left-0 w-full bg-cloud border-b border-coral-100 shadow-xl lg:hidden"
+              className="absolute top-full left-0 w-full bg-oat border-b border-amber-100 shadow-xl lg:hidden"
             >
               <div className="p-6 flex flex-col gap-4">
                 <a href="#why" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Why us</a>
@@ -105,10 +105,10 @@ export default function Header() {
                   <Phone className="w-5 h-5" />
                   {CLINIC.phone}
                 </a>
-                <hr className="border-coral-100 my-2" />
+                <hr className="border-amber-100 my-2" />
                 <button
                   onClick={() => { setIsMobileMenuOpen(false); openBooking(); }}
-                  className="w-full text-center py-3 rounded-lg text-lg font-semibold text-cloud bg-coral-600 shadow-md shadow-coral-600/20"
+                  className="w-full text-center py-3 rounded-lg text-lg font-semibold text-ink bg-amber-500 shadow-md shadow-amber-600/20"
                 >
                   Book appointment
                 </button>

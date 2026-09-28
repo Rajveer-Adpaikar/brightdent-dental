@@ -11,7 +11,7 @@ export default function HIPAA() {
       <h1 className="font-display text-4xl lg:text-5xl text-ink mb-8">HIPAA Notice of Privacy Practices</h1>
       <div className="space-y-6 text-ink/75">
         <p><strong>Effective Date:</strong> {new Date().toLocaleDateString()}</p>
-        <p className="font-semibold italic bg-coral-50 p-4 rounded-lg">THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.</p>
+        <p className="font-semibold italic bg-amber-50 p-4 rounded-lg">THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.</p>
 
         <h2 className="text-xl font-bold text-ink mt-8 mb-4">1. Our Commitment to Your Privacy</h2>
         <p>{CLINIC.name} is fully compliant with the Health Insurance Portability and Accountability Act (HIPAA). We understand that medical information about you and your health is personal, and we are committed to protecting it. We create a record of the care and services you receive to provide you with quality care and to comply with legal requirements.</p>

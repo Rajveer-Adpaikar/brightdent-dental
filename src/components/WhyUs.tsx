@@ -27,15 +27,15 @@ const REASONS = [
 
 export default function WhyUs() {
   return (
-    <section id="why" className="py-20 lg:py-28 bg-cloud">
+    <section id="why" className="py-20 lg:py-28 bg-oat">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mb-14 lg:mb-16">
           <SmileRow className="mb-5" />
-          <p className="font-data text-xs uppercase tracking-[0.28em] text-coral-500 mb-4">Why BrightDent</p>
+          <p className="font-data text-xs uppercase tracking-[0.28em] text-amber-500 mb-4">Why BrightDent</p>
           <h2 className="font-display text-4xl lg:text-5xl text-ink leading-[1.05]">
             A clinic that runs like
             <br />
-            <span className="text-coral-600 not-italic">your case matters.</span>
+            <span className="text-amber-600 not-italic">your case matters.</span>
           </h2>
         </div>
 
@@ -48,10 +48,10 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ delay: (idx % 2) * 0.1, duration: 0.5, ease: 'easeOut' }}
-              className="bg-snow border border-coral-100/70 rounded-2xl p-7 lg:p-8 h-full flex flex-col group hover:border-coral-200 transition-colors"
+              className="bg-paper border border-amber-100/70 rounded-2xl p-7 lg:p-8 h-full flex flex-col group hover:border-amber-200 transition-colors"
             >
-              <span className="font-data text-[10px] uppercase tracking-[0.22em] text-coral-500 mb-3">{r.tag}</span>
-              <h3 className="font-display text-xl lg:text-2xl text-ink group-hover:text-coral-700 transition-colors mb-2.5">
+              <span className="font-data text-[10px] uppercase tracking-[0.22em] text-amber-500 mb-3">{r.tag}</span>
+              <h3 className="font-display text-xl lg:text-2xl text-ink group-hover:text-amber-700 transition-colors mb-2.5">
                 {r.title}
               </h3>
               <p className="text-sm text-ink/65 leading-relaxed">{r.text}</p>
@@ -60,10 +60,10 @@ export default function WhyUs() {
         </div>
 
         {/* Stats band */}
-        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-px bg-coral-100 overflow-hidden rounded-2xl border border-coral-100">
+        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-px bg-amber-100 overflow-hidden rounded-2xl border border-amber-100">
           {CLINIC.stats.map((stat) => (
-            <div key={stat.label} className="bg-snow px-6 py-8 lg:py-10 flex flex-col gap-1.5">
-              <span className="font-data text-3xl lg:text-4xl text-coral-700">{stat.value}</span>
+            <div key={stat.label} className="bg-paper px-6 py-8 lg:py-10 flex flex-col gap-1.5">
+              <span className="font-data text-3xl lg:text-4xl text-amber-700">{stat.value}</span>
               <span className="text-xs lg:text-sm font-medium text-ink/60">{stat.label}</span>
             </div>
           ))}

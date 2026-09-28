@@ -56,25 +56,22 @@ physical Panaji clinic, not a SaaS.
 - WhatsApp is wired across major calls-to-action (Hero, Dentists, FindUs, booking +
   enquiry handoff, floating button) per the PDF brief.
 
-## Design System ("The Azulejo Clinic")
+## Design System ("The Enamel Studio")
 
 - Palette (Tailwind v4 `@theme` tokens in `src/index.css`):
-  - `cobalt` (azulejo-tile azure, primary brand; `cobalt-950` #0a142e → `cobalt-50` #eef4fb)
-  - `plaster` (#fafbfd cool near-white background — NOT cream/sand)
-  - `ink` (#0d1830 deep blue-black for text / dark sections)
-  - `marigold` (action color — call, book, WhatsApp, accents; `marigold-500` #e99a1c)
-- Type: `Bricolage Grotesque` (`font-display`, grotesque display) + `Golos Text`
-  (`font-sans`, body) + `JetBrains Mono` (`font-data`, clinical data). Imported in
-  `src/index.css` via Google Fonts. None are on the impeccable reflex-reject list.
-- Signature motif: the **arch mark** (`src/components/Arch.tsx`) — a Goan church arch
-  that doubles as a smile; logo monogram and azulejo tile-row divider. The hero uses an
-  **appointment ticket stub** card (perforation rules + seat number) instead of a ledger.
-- Design rules: no rosewood/peach, no green/pine, no teal/slate, no beige/cream/sand bg,
-  no gradient text, no gold, marigold marks every action. Borders are rarely rounded
-  (rounded-md max) — this build reads sharper and more "tiled" than IvoryCare.
-- The impeccable design hook has scanned every file in this build; no deterministic
-  issues found. Contrast pairs are all WCAG-AA verified (ink-on-plaster 17:1,
-  ink-on-marigold 7.65:1, plaster-on-cobalt 9.89:1).
+  - `cloud` (#f5f8fb cool surgical-white page background) + `snow` (#ffffff panels)
+  - `ink` (#15202e soft graphite-navy text / dark cards)
+  - `coral` (single action color — call, book, WhatsApp, accents; `coral-600` #b3281e)
+  - No teal/rosewood/pine/beige defaults; coral marks every action.
+- Type: `Sora` (`font-display`, geometric) + `Figtree` (`font-sans`, humanist body)
+  + `JetBrains Mono` (`font-data`, clinical data). Imported in `src/index.css`
+  via Google Fonts. None are on the impeccable reflex-reject list.
+- Signature motif: the **smile mark** (`src/components/Smile.tsx`) — a tooth-peaked
+  smile arc; logo monogram and divider strip. The hero is an **editorial smile-arc
+  illustration** with floating trust chips (no dentist-card).
+- Layout, deliberately varied vs the IvoryCare fork: dark utility bar + header,
+  a 3-step "How it works" band, WhyUs 2×2 tiles, light dentist section, treatments
+  card grid with dark cost-enquiry band, coral-wash gallery, FAQ + WhatsApp card.
 
 ## Gotchas
 

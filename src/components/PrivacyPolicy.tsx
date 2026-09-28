@@ -8,6 +8,7 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="pt-32 pb-24 px-6 max-w-4xl mx-auto">
+      <p className="font-data text-xs uppercase tracking-[0.28em] text-coral-500 mb-4">BrightDent · Panaji</p>
       <h1 className="font-display text-4xl lg:text-5xl text-ink mb-8">Privacy Policy</h1>
       <div className="space-y-6 text-ink/75">
         <p><strong>Last updated:</strong> {new Date().toLocaleDateString()}</p>

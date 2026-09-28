@@ -1,51 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Golos+Text:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 /*
   BrightDent Dental & Implant Studio — theme
 
-  "The azulejo clinic": cobalt azure + plaster white + marigold.
-  A deliberate break from every sibling demo (rosewood/peach IvoryCare,
-  pine-green PearlSmile, and the beige AI default).
+  "The enamel studio": surgical-white surfaces + a single coral accent that
+  carries every warm action. Reads unmistakably as dentistry (enamel, porcelain,
+  sterile-white), and a deliberate break from every sibling demo
+  (rosewood/peach IvoryCare, green/teal PearlSmile, cobalt "azulejo" v1).
 
-    --cobalt:  primary identity — Goan azulejo tile blue (hue ~220)
-    --ink:     deep blue-black ink for text / dark sections
-    --plaster: cool near-white (chroma kept low, NOT cream/sand)
-    --marigold: action color — call, book, WhatsApp, accents (hue ~40)
-  Type: Bricolage Grotesque (display) · Golos Text (body) · JetBrains Mono (data)
+    --cloud:   cool surgical-white page background
+    --snow:    pure-white panel surface
+    --ink:     soft graphite-navy text
+    --coral:   the single action color — call, book, WhatsApp, accents
+  Type: Sora (display, geometric) · Figtree (body, humanist) · JetBrains Mono (data)
 */
 @theme {
-  --font-serif: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Golos Text", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Cobalt azure — the held line through the whole palette */
-  --color-cobalt-50:  #eef4fb;
-  --color-cobalt-100: #dbe7f7;
-  --color-cobalt-200: #b7cbec;
-  --color-cobalt-300: #8babdc;
-  --color-cobalt-400: #5f8ac9;
-  --color-cobalt-500: #3b69b3;
-  --color-cobalt-600: #2a5097;
-  --color-cobalt-700: #1f3f7a;
-  --color-cobalt-800: #182f5e;
-  --color-cobalt-900: #112043;
-  --color-cobalt-950: #0a142e;
-
-  /* Ink — deep blue-black for text and dark sections */
-  --color-ink: #0d1830;
-
-  /* Plaster — cool near-white page background (not cream/sand) */
-  --color-plaster: #fafbfd;
-
-  /* Marigold — the single action color (saffron at hue ~40) */
-  --color-marigold-100: #fdf0d1;
-  --color-marigold-200: #fbe1a3;
-  --color-marigold-300: #f7cd6d;
-  --color-marigold-400: #f2b53f;
-  --color-marigold-500: #e99a1c;
-  --color-marigold-600: #c97c12;
-  --color-marigold-700: #a9600e;
+  /* Cloud — cool surgical-white page background */
+  --color-cloud: #f5f8fb;
+  /* Snow — pure white panel surface */
+  --color-snow: #ffffff;
+  /* Ink — soft graphite-navy text (reads friendlier than pure black) */
+  --color-ink: #15202e;
+  /* Coral — warm red-orange action accent (hue ~8, distinct from peach/rose/terracotta siblings) */
+  --color-coral-50:  #fdeeee;
+  --color-coral-100: #fbdcdb;
+  --color-coral-200: #f6b9b5;
+  --color-coral-300: #f08c85;
+  --color-coral-400: #e75f54;
+  --color-coral-500: #d93a2e;
+  --color-coral-600: #b3281e;
+  --color-coral-700: #8f2019;
+  --color-coral-800: #6e1a15;
+  --color-coral-900: #4a1210;
 }
 
 html {
@@ -54,14 +45,14 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-plaster);
+  background: var(--color-cloud);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Display headings — Bricolage Grotesque (grotesque, confident) */
+/* Display headings — Sora (geometric, confident) */
 .font-display {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -89,11 +80,11 @@ body {
 
 /* Visible keyboard focus */
 :focus-visible {
-  outline: 2px solid var(--color-cobalt-500);
+  outline: 2px solid var(--color-coral-500);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: var(--color-marigold-300);
+  background: var(--color-coral-200);
   color: var(--color-ink);
 }

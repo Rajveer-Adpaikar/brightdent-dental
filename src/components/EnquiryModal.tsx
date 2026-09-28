@@ -5,9 +5,9 @@ import { CLINIC } from '../config';
 import { waLink } from '../lib';
 
 const INPUT_CLS =
-  'w-full rounded-lg border border-cobalt-200 bg-white px-3.5 py-3 text-sm text-ink placeholder:text-cobalt-400/80 focus:outline-none focus:ring-2 focus:ring-marigold-500/60';
+  'w-full rounded-xl border border-coral-200 bg-white px-3.5 py-3 text-sm text-ink placeholder:text-coral-400/80 focus:outline-none focus:ring-2 focus:ring-coral-500/60';
 const LABEL_CLS =
-  'block font-data text-[11px] uppercase tracking-[0.2em] text-cobalt-500 mb-2';
+  'block font-data text-[11px] uppercase tracking-[0.2em] text-coral-500 mb-2';
 
 export function EnquiryModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [name, setName] = useState('');
@@ -65,17 +65,17 @@ export function EnquiryModal({ open, onClose }: { open: boolean; onClose: () => 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="relative bg-plaster rounded-xl shadow-2xl w-full max-w-lg my-8"
+            className="relative bg-cloud rounded-2xl shadow-2xl w-full max-w-lg my-8"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between px-6 py-4 border-b border-cobalt-100">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-coral-100">
               <div>
-                <p className="font-data text-[10px] uppercase tracking-[0.3em] text-cobalt-500">Treatment cost guidance</p>
+                <p className="font-data text-[10px] uppercase tracking-[0.3em] text-coral-500">Treatment cost guidance</p>
                 <h3 className="font-display text-xl text-ink">Get a written estimate</h3>
               </div>
               <button
                 onClick={onClose}
-                className="w-9 h-9 rounded-md bg-white border border-cobalt-100 flex items-center justify-center text-ink/70 hover:bg-cobalt-50 transition-colors"
+                className="w-9 h-9 rounded-full bg-white border border-coral-100 flex items-center justify-center text-ink/70 hover:bg-coral-50 transition-colors"
                 aria-label="Close enquiry"
               >
                 <X className="w-5 h-5" />
@@ -84,7 +84,7 @@ export function EnquiryModal({ open, onClose }: { open: boolean; onClose: () => 
 
             {sent ? (
               <div className="px-6 py-14 text-center">
-                <div className="w-12 h-12 rounded-full bg-marigold-100 text-marigold-700 flex items-center justify-center mx-auto mb-5">
+                <div className="w-12 h-12 rounded-full bg-coral-50 text-coral-600 flex items-center justify-center mx-auto mb-5">
                   <Check className="w-6 h-6" />
                 </div>
                 <h4 className="font-display text-2xl text-ink mb-2">Estimate request on its way</h4>
@@ -93,7 +93,7 @@ export function EnquiryModal({ open, onClose }: { open: boolean; onClose: () => 
                 </p>
                 <button
                   onClick={onClose}
-                  className="mt-7 inline-flex items-center justify-center px-8 py-3 rounded-md bg-cobalt-700 text-plaster text-sm font-semibold hover:bg-cobalt-600 transition-colors"
+                  className="mt-7 inline-flex items-center justify-center px-8 py-3 rounded-full bg-coral-600 text-cloud text-sm font-semibold hover:bg-coral-500 transition-colors"
                 >
                   Done
                 </button>
@@ -127,10 +127,10 @@ export function EnquiryModal({ open, onClose }: { open: boolean; onClose: () => 
                   <label className={LABEL_CLS} htmlFor="eq-question">Anything else?</label>
                   <textarea id="eq-question" value={question} onChange={(e) => setQuestion(e.target.value)} rows={3} placeholder="e.g. I need two implants before December…" className={INPUT_CLS} />
                 </div>
-                {err && <p className="text-sm text-marigold-700 font-medium" role="alert">{err}</p>}
+                {err && <p className="text-sm text-coral-700 font-medium" role="alert">{err}</p>}
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-cobalt-700 text-plaster font-semibold text-sm hover:bg-cobalt-600 transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-coral-600 text-cloud font-semibold text-sm hover:bg-coral-500 transition-colors"
                 >
                   <ArrowRight className="w-4 h-4" />
                   Send estimate request

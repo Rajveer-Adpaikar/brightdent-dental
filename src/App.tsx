@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { BookingProvider } from './booking';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Steps from './components/Steps';
 import WhyUs from './components/WhyUs';
 import Dentists from './components/Dentists';
 import Treatments from './components/Treatments';
@@ -20,6 +21,7 @@ function HomePage() {
   return (
     <main>
       <Hero />
+      <Steps />
       <WhyUs />
       <Dentists />
       <Treatments />
@@ -35,7 +37,7 @@ export default function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <BookingProvider>
-        <div className="min-h-screen bg-plaster font-sans text-ink selection:bg-marigold-300 selection:text-ink">
+        <div className="min-h-screen bg-cloud font-sans text-ink selection:bg-coral-200 selection:text-ink">
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />

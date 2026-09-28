@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useBooking } from '../booking';
 import { CLINIC } from '../config';
-import { Arch, ArchRow } from './Arch';
+import { Smile, SmileRow } from './Smile';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,87 +17,109 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const desktopLink = 'text-sm font-medium text-cobalt-800 hover:text-cobalt-600 transition-colors';
+  const desktopLink = 'text-sm font-medium text-ink/70 hover:text-coral-600 transition-colors';
   const mobileLink = 'text-lg font-medium text-ink';
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-plaster/90 backdrop-blur-md shadow-sm py-2.5 border-b border-cobalt-100' : 'bg-transparent py-4'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <span className="relative flex h-10 w-10 items-center justify-center">
-            <Arch className="w-8 h-9 text-cobalt-600 group-hover:text-cobalt-500 transition-colors" />
-            <ArchRow className="absolute -bottom-0.5 scale-75" />
-          </span>
-          <span className="font-display font-bold text-2xl leading-none tracking-tight text-ink group-hover:text-cobalt-700 transition-colors">
-            BrightDent
-          </span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          <a href="#why" className={desktopLink}>Why us</a>
-          <a href="#dentists" className={desktopLink}>Our dentists</a>
-          <a href="#treatments" className={desktopLink}>Treatments</a>
-          <a href="#faq" className={desktopLink}>FAQ</a>
-          <a href="#find-us" className={desktopLink}>Find us</a>
-        </nav>
-
-        {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-4">
-          <a href={`tel:${CLINIC.phoneHref}`} className="flex items-center gap-2 text-sm font-semibold text-cobalt-800 hover:text-cobalt-600 transition-colors">
-            <Phone className="w-4 h-4" />
+    <>
+      {/* Slim top utility bar */}
+      <div className="fixed top-0 inset-x-0 z-50 bg-ink text-cloud/85 text-xs h-9 flex items-center px-6">
+        <div className="max-w-7xl w-full mx-auto flex items-center justify-between gap-4">
+          <p className="font-data tracking-wide truncate">
+            {CLINIC.addressShort}
+          </p>
+          <a href={`tel:${CLINIC.phoneHref}`} className="hidden sm:inline-flex items-center gap-1.5 font-semibold text-cloud hover:text-coral-300 transition-colors shrink-0">
+            <Phone className="w-3 h-3" />
             {CLINIC.phone}
           </a>
-          <button onClick={() => openBooking()} className="px-5 py-2.5 rounded-md bg-cobalt-700 text-plaster text-sm font-semibold hover:bg-cobalt-600 transition-colors shadow-md shadow-ink/10">
-            Book appointment
+        </div>
+      </div>
+
+      <header
+        className={`fixed top-9 inset-x-0 z-40 transition-all duration-300 ${
+          isScrolled ? 'bg-cloud/90 backdrop-blur-md shadow-sm py-2.5 border-b border-coral-100' : 'bg-transparent py-4'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <span className="relative flex h-9 w-9 items-center justify-center bg-coral-600 text-cloud rounded-lg group-hover:bg-coral-500 transition-colors">
+              <Smile className="w-5 h-4" />
+            </span>
+            <span className="inline-flex flex-col leading-none">
+              <span className="font-display font-bold text-xl tracking-tight text-ink group-hover:text-coral-700 transition-colors">
+                BrightDent
+              </span>
+              <span className="font-data text-[9px] uppercase tracking-[0.22em] text-ink/50 mt-0.5">
+                Dental &amp; Implant
+              </span>
+            </span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            <a href="#why" className={desktopLink}>Why us</a>
+            <a href="#dentists" className={desktopLink}>Our dentists</a>
+            <a href="#treatments" className={desktopLink}>Treatments</a>
+            <a href="#faq" className={desktopLink}>FAQ</a>
+            <a href="#find-us" className={desktopLink}>Find us</a>
+          </nav>
+
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center gap-4">
+            <a href={`tel:${CLINIC.phoneHref}`} className="flex items-center gap-2 text-sm font-semibold text-ink/70 hover:text-coral-600 transition-colors">
+              <Phone className="w-4 h-4" />
+              {CLINIC.phone}
+            </a>
+            <button onClick={() => openBooking()} className="px-5 py-2.5 rounded-lg bg-coral-600 text-cloud text-sm font-semibold hover:bg-coral-500 transition-colors shadow-md shadow-coral-600/20">
+              Book appointment
+            </button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            className="lg:hidden p-2 -mr-2 text-ink"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          className="md:hidden p-2 -mr-2 text-ink"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
+        {/* Mobile Nav */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute top-full left-0 w-full bg-cloud border-b border-coral-100 shadow-xl lg:hidden"
+            >
+              <div className="p-6 flex flex-col gap-4">
+                <a href="#why" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Why us</a>
+                <a href="#dentists" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Our dentists</a>
+                <a href="#treatments" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Treatments</a>
+                <a href="#faq" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
+                <a href="#find-us" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Find us</a>
+                <a href={`tel:${CLINIC.phoneHref}`} className="flex items-center gap-2 text-lg font-medium text-ink/70" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Phone className="w-5 h-5" />
+                  {CLINIC.phone}
+                </a>
+                <hr className="border-coral-100 my-2" />
+                <button
+                  onClick={() => { setIsMobileMenuOpen(false); openBooking(); }}
+                  className="w-full text-center py-3 rounded-lg text-lg font-semibold text-cloud bg-coral-600 shadow-md shadow-coral-600/20"
+                >
+                  Book appointment
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
 
-      {/* Mobile Nav */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-0 w-full bg-plaster border-b border-cobalt-100 shadow-xl md:hidden"
-          >
-            <div className="p-6 flex flex-col gap-4">
-              <a href="#why" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Why us</a>
-              <a href="#dentists" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Our dentists</a>
-              <a href="#treatments" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Treatments</a>
-              <a href="#faq" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
-              <a href="#find-us" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Find us</a>
-              <a href={`tel:${CLINIC.phoneHref}`} className="flex items-center gap-2 text-lg font-medium text-cobalt-800" onClick={() => setIsMobileMenuOpen(false)}>
-                <Phone className="w-5 h-5" />
-                {CLINIC.phone}
-              </a>
-              <hr className="border-cobalt-100 my-2" />
-              <button
-                onClick={() => { setIsMobileMenuOpen(false); openBooking(); }}
-                className="w-full text-center py-3 rounded-md text-lg font-semibold text-plaster bg-cobalt-700 shadow-md shadow-ink/10"
-              >
-                Book appointment
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+      {/* Spacer so content clears the stacked bars */}
+      <div aria-hidden="true" className="h-24 lg:h-[4.5rem]" />
+    </>
   );
 }

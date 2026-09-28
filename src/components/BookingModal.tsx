@@ -81,7 +81,7 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-pine-950/80 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={onClose}
         >
           <motion.div
@@ -94,7 +94,7 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
           >
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-white transition-colors shadow-sm"
+              className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-pine-100 flex items-center justify-center text-pine-900/70 hover:text-pine-950 hover:bg-white transition-colors shadow-sm"
               aria-label="Close booking"
             >
               <X className="w-5 h-5" />
@@ -109,10 +109,10 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
             ) : (
               <div className="p-12 text-center">
                 <div className="text-5xl mb-4">🦷</div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Online booking is almost ready</h3>
-                <p className="text-slate-500 max-w-md mx-auto">
-                  We're hooking up our calendar right now. In the meantime, reach us at{' '}
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-teal-600 font-semibold hover:underline">
+                <h3 className="text-2xl font-bold text-pine-950 mb-2">Booking is almost ready</h3>
+                <p className="text-pine-900/60 max-w-md mx-auto">
+                  We're hooking up our online calendar right now. In the meantime, reach us at{' '}
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-pine-700 font-semibold hover:underline">
                     {CONTACT_EMAIL}
                   </a>{' '}
                   and we'll schedule your visit personally.

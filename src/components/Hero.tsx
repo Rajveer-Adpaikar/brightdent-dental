@@ -1,113 +1,97 @@
 import { motion } from 'motion/react';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import { useBooking } from '../booking';
+import { CLINIC } from '../config';
 
 export default function Hero() {
   const openBooking = useBooking();
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
-      {/* Decorative background shapes */}
-      <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[800px] rounded-full bg-teal-100/50 blur-3xl opacity-60 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[600px] rounded-full bg-blue-50/50 blur-3xl opacity-60 pointer-events-none" />
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-pearl">
+      {/* Decorative pearl-glow shapes */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 left-1/4 w-[64vw] h-[64vw] max-w-[820px] max-h-[820px] rounded-full bg-pine-200/40 blur-3xl opacity-70 pointer-events-none"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-[-10%] right-[-6%] w-[40vw] h-[40vw] max-w-[520px] max-h-[520px] rounded-full bg-gold-300/30 blur-3xl opacity-60 pointer-events-none"
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
-              <span className="flex h-2 w-2 rounded-full bg-teal-500 animate-pulse"></span>
-              24/7 Virtual Dental Care
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-pine-50 text-pine-800 rounded-full text-xs font-semibold tracking-wide mb-7">
+              <MapPin className="w-3.5 h-3.5 text-pine-600" />
+              Panaji, Goa
             </div>
-            
-            <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
-              Modern Dentistry <br/><span className="text-teal-600">Redefined.</span>
+
+            <h1 className="font-display text-5xl lg:text-[5.5rem] leading-[1.02] text-pine-950 mb-7">
+              Healthy Smiles.
+              <br />
+              <span className="text-pine-700 italic">Confident You.</span>
             </h1>
-            
-            <p className="text-lg lg:text-xl text-slate-600 mb-8 leading-relaxed max-w-lg">
-              Experience personalized oral care, get AI-powered assessments, and consult with licensed dentists on-demand.
+
+            <p className="text-lg lg:text-xl text-pine-900/75 mb-9 leading-relaxed max-w-lg">
+              General, root canal &amp; cosmetic dentistry in the heart of Panaji —
+              three in-house specialists, one calm room, and care that starts with listening.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href="#services" className="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 group">
-                Get Started
+              <a href="#services" className="w-full sm:w-auto px-8 py-4 rounded-full bg-pine-800 text-pearl font-bold text-lg hover:bg-pine-700 transition-colors flex items-center justify-center gap-2 group">
+                Explore our services
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              <button onClick={openBooking} className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-slate-900 font-bold text-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors flex items-center justify-center">
-                Book a Virtual Visit
+              <button onClick={openBooking} className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-pine-900 font-bold text-lg border border-pine-200 hover:border-pine-300 hover:bg-white/70 transition-colors">
+                Book an appointment
               </button>
             </div>
-
-            <div className="mt-10 flex items-center gap-6">
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className={`w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden`}>
-                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User avatar" className="w-full h-full object-cover" />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <div className="flex items-center gap-1 text-amber-500 font-bold mb-1">
-                  ★★★★★ 4.9
-                </div>
-                <div className="text-sm font-medium text-slate-500">
-                  Trusted by 100k+ patients
-                </div>
-              </div>
-            </div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
             className="relative lg:h-[600px] flex items-center justify-center"
           >
-            {/* Hero Image / Mockup composite */}
             <div className="relative w-full max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-tr from-teal-600 to-blue-400 rounded-3xl blur-2xl opacity-20 transform rotate-6"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Woman smiling beautifully" 
-                className="relative z-10 w-full h-[500px] object-cover rounded-3xl shadow-2xl border border-white/50"
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-tr from-pine-700 to-pine-400 rounded-[2.5rem] blur-2xl opacity-25 transform rotate-3" />
+              <img
+                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="A smiling patient with healthy teeth"
+                className="relative z-10 w-full h-[480px] object-cover rounded-[2.5rem] shadow-2xl border border-white/60"
               />
-              
-              {/* Floating UI Elements */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute top-12 -right-3 sm:-right-12 z-20 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3"
+
+              {/* Floating stat chip */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.5, ease: 'easeOut' }}
+                className="absolute top-10 -right-3 sm:-right-10 z-20 bg-white p-4 pr-5 rounded-2xl shadow-xl border border-pine-100"
               >
-                <div className="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-slate-900">Health Score: 92/100</div>
-                  <div className="text-xs text-slate-500">Looks great!</div>
-                </div>
+                <div className="font-data text-2xl font-semibold text-pine-800">17,000+</div>
+                <div className="text-xs font-medium text-pine-900/60">patients treated</div>
               </motion.div>
 
+              {/* Floating specialty chip */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                className="absolute bottom-12 -left-3 z-20 bg-white p-4 rounded-2xl shadow-xl border border-slate-100"
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.5, ease: 'easeOut' }}
+                className="absolute bottom-12 -left-3 sm:-left-10 z-20 bg-white p-4 pr-5 rounded-2xl shadow-xl border border-pine-100"
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-teal-500"></div>
-                  <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">Dentist Match</div>
-                </div>
-                <div className="text-sm font-medium text-slate-600">Dr. Sarah Jenkins is available<br/>for a virtual consult today.</div>
+                <div className="font-data text-2xl font-semibold text-pine-800">3</div>
+                <div className="text-xs font-medium text-pine-900/60">in-house specialists</div>
               </motion.div>
             </div>
           </motion.div>
-          
+
         </div>
       </div>
     </section>

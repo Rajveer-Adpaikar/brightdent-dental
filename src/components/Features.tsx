@@ -1,70 +1,54 @@
 import { motion } from 'motion/react';
-import { ScanFace, Video, MapPin, Stethoscope, Clock, ShieldCheck } from 'lucide-react';
-
-const features = [
-  {
-    icon: <ScanFace className="w-8 h-8" />,
-    title: "AI Smart Scan",
-    description: "Take 5 guided photos on your phone for an instant AI-powered oral health assessment and personalized care plan."
-  },
-  {
-    icon: <Video className="w-8 h-8" />,
-    title: "Virtual Consultations",
-    description: "Connect with licensed dentists 24/7 via video or phone for evaluations, care plans, and prescriptions."
-  },
-  {
-    icon: <MapPin className="w-8 h-8" />,
-    title: "Dentist Match",
-    description: "We route you to the appropriate in-network provider based on your specific needs, insurance, and location."
-  },
-  {
-    icon: <ShieldCheck className="w-8 h-8" />,
-    title: "Second Opinions",
-    description: "Get an independent, expert review of any dental treatment plan for unbiased, trustworthy recommendations."
-  },
-  {
-    icon: <Clock className="w-8 h-8" />,
-    title: "Emergency Care",
-    description: "24/7 on-demand access to licensed dentists for immediate triage of urgent issues like tooth pain or trauma."
-  },
-  {
-    icon: <Stethoscope className="w-8 h-8" />,
-    title: "For Professionals",
-    description: "Embed Smart Scan on your practice website, offer after-hours coverage, and get priority in referral results."
-  }
-];
+import { CLINIC } from '../config';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function Features() {
   return (
-    <section id="services" className="py-24 bg-white relative">
+    <section id="services" className="py-24 lg:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-            A comprehensive ecosystem <br/>of dental care.
-          </h2>
-          <p className="text-lg text-slate-600">
-            From instant AI evaluations to connecting with local specialists, we cover every aspect of your oral health journey.
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16 lg:mb-20">
+          <div className="max-w-2xl">
+            <p className="font-data text-xs uppercase tracking-[0.25em] text-pine-600 mb-4">
+              PearlSmile · Services
+            </p>
+            <h2 className="font-display text-4xl lg:text-6xl text-pine-950 leading-[1.05]">
+              Care under one roof,
+              <br />
+              <span className="text-pine-700 italic">the way a clinic should be.</span>
+            </h2>
+          </div>
+          <p className="lg:max-w-xs text-pine-900/70 leading-relaxed">
+            Four branches of dentistry, three specialists. Every visit anchored by the same
+            plain rule — understand before you treat.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
+        <div className="grid md:grid-cols-2 gap-x-8 gap-y-14">
+          {CLINIC.services.map((service, idx) => (
+            <motion.article
+              key={service.num}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-lg transition-shadow group"
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ delay: (idx % 2) * 0.12, duration: 0.55, ease: 'easeOut' }}
+              className="border-t-2 border-pine-100 pt-6 flex flex-col h-full group"
             >
-              <div className="text-teal-600 mb-4 group-hover:scale-110 transition-transform origin-left">
-                {feature.icon}
+              <div className="flex items-baseline gap-4 mb-4">
+                <span className="font-data text-sm text-gold-600">{service.num}</span>
+                <h3 className="font-display text-2xl lg:text-3xl text-pine-950 group-hover:text-pine-700 transition-colors">
+                  {service.title}
+                </h3>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-slate-900">{feature.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
+              <p className="text-sm text-pine-900/65 mb-5 leading-relaxed max-w-md">{service.blurb}</p>
+              <ul className="mt-auto flex flex-wrap gap-x-5 gap-y-2.5">
+                {service.items.map((item) => (
+                  <li key={item} className="flex items-center gap-1.5 text-sm font-medium text-pine-800">
+                    <ArrowUpRight className="w-3.5 h-3.5 text-gold-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.article>
           ))}
         </div>
       </div>

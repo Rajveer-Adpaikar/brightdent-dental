@@ -1,103 +1,87 @@
-import { Twitter, Linkedin, Instagram, Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useBooking } from '../booking';
 import { CLINIC } from '../config';
+import { Tooth } from './Tooth';
 
 export default function Footer() {
-  const openBooking = useBooking();
+  const { openBooking } = useBooking();
   return (
-    <footer className="bg-pine-950 text-pine-100/60 pt-16 pb-8">
+    <footer className="bg-rosewood-950 text-rosewood-100/60 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
         {/* Top: brand + contact */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pb-12 border-b border-pine-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pb-12 border-b border-rosewood-800">
           <div className="max-w-sm">
             <div className="flex items-center gap-3 mb-5">
-              <span className="relative flex h-10 w-10 items-center justify-center">
-                <span className="smile-arch h-7 w-7 block rounded-t-full border-gold-500/70" aria-hidden="true" />
-                <span className="absolute bottom-[15%] h-1.5 w-5 rounded-full bg-gold-400" aria-hidden="true" />
-              </span>
-              <span className="font-display text-2xl text-pearl">PearlSmile</span>
+              <Tooth className="w-6 h-8 text-rosewood-300" />
+              <span className="font-display font-semibold text-2xl text-ivory">IvoryCare</span>
             </div>
             <p className="text-sm leading-relaxed">{CLINIC.tagline}</p>
           </div>
 
           <div className="flex flex-col gap-4 md:items-end">
-            <a href={`tel:${CLINIC.phoneHref}`} className="inline-flex items-center gap-2 text-lg font-medium text-pearl/90 hover:text-gold-400 transition-colors">
+            <a href={`tel:${CLINIC.phoneHref}`} className="inline-flex items-center gap-2 text-lg font-medium text-ivory/90 hover:text-peach-300 transition-colors">
               <Phone className="w-4 h-4" />
               {CLINIC.phone}
             </a>
-            <a href={`mailto:${CLINIC.email}`} className="inline-flex items-center gap-2 text-pearl/70 hover:text-gold-400 transition-colors">
+            <a href={`mailto:${CLINIC.email}`} className="inline-flex items-center gap-2 text-ivory/70 hover:text-peach-300 transition-colors">
               <Mail className="w-4 h-4" />
               {CLINIC.email}
             </a>
-            <p className="inline-flex items-start gap-2 text-sm text-pearl/55 leading-relaxed max-w-xs">
+            <p className="inline-flex items-start gap-2 text-sm text-ivory/55 leading-relaxed max-w-xs">
               <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
               {CLINIC.address}
             </p>
           </div>
         </div>
 
-        {/* Middle: links + social */}
+        {/* Middle: links */}
         <div className="py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <h4 className="font-semibold text-pearl mb-4 text-sm">Patients</h4>
+            <h4 className="font-semibold text-ivory mb-4 text-sm">Patients</h4>
             <ul className="space-y-1">
-              <li><a href="#services" className="inline-block py-2 text-sm hover:text-gold-400 transition-colors">Services</a></li>
-              <li><a href="#dentists" className="inline-block py-2 text-sm hover:text-gold-400 transition-colors">Our Dentists</a></li>
-              <li><button onClick={openBooking} className="inline-block py-2 text-sm hover:text-gold-400 transition-colors">Book Appointment</button></li>
-              <li><a href="#clinic" className="inline-block py-2 text-sm hover:text-gold-400 transition-colors">Clinic Hours</a></li>
+              <li><a href="#why" className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">Why us</a></li>
+              <li><a href="#dentists" className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">Our dentists</a></li>
+              <li><button onClick={() => openBooking()} className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">Book appointment</button></li>
+              <li><a href="#faq" className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">FAQ</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-pearl mb-4 text-sm">Services</h4>
+            <h4 className="font-semibold text-ivory mb-4 text-sm">Treatments</h4>
             <ul className="space-y-1">
               {CLINIC.services.map((s) => (
-                <li key={s.num}>
-                  <a href="#services" className="inline-block py-2 text-sm hover:text-gold-400 transition-colors">{s.title}</a>
+                <li key={s.index}>
+                  <a href="#treatments" className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">{s.title}</a>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-pearl mb-4 text-sm">Clinic</h4>
+            <h4 className="font-semibold text-ivory mb-4 text-sm">Clinic</h4>
             <ul className="space-y-1">
-              <li><a href={`tel:${CLINIC.phoneHref}`} className="inline-block py-2 text-sm hover:text-gold-400 transition-colors">Call us</a></li>
-              <li><button onClick={openBooking} className="inline-block py-2 text-sm hover:text-gold-400 transition-colors">New patient?</button></li>
-              <li><a href="#clinic" className="inline-block py-2 text-sm hover:text-gold-400 transition-colors">Find us</a></li>
+              <li><a href={`tel:${CLINIC.phoneHref}`} className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">Call us</a></li>
+              <li><button onClick={() => openBooking()} className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">New patient?</button></li>
+              <li><a href="#find-us" className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">Find us</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-pearl mb-4 text-sm">Follow</h4>
-            <div className="flex gap-3">
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter" className="w-10 h-10 rounded-full bg-pine-800 border border-pine-700 flex items-center justify-center text-pine-100/60 hover:text-gold-400 hover:border-gold-500/50 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full bg-pine-800 border border-pine-700 flex items-center justify-center text-pine-100/60 hover:text-gold-400 hover:border-gold-500/50 transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full bg-pine-800 border border-pine-700 flex items-center justify-center text-pine-100/60 hover:text-gold-400 hover:border-gold-500/50 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-pine-800 border border-pine-700 flex items-center justify-center text-pine-100/60 hover:text-gold-400 hover:border-gold-500/50 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
+            <h4 className="font-semibold text-ivory mb-4 text-sm">Legal</h4>
+            <ul className="space-y-1">
+              <li><Link to="/privacy-policy" className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">Terms of Service</Link></li>
+              <li><Link to="/hipaa" className="inline-block py-2 text-sm hover:text-peach-300 transition-colors">HIPAA</Link></li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-pine-800 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-pine-100/45">
-            &copy; {new Date().getFullYear()} {CLINIC.name} &bull; {CLINIC.city}
+        <div className="pt-8 border-t border-rosewood-800 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-sm text-ivory/45">
+            &copy; {new Date().getFullYear()} {CLINIC.name} &bull; {CLINIC.city} &bull; Demo site — all details fictional
           </p>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-            <Link to="/privacy-policy" className="py-2.5 text-pine-100/45 hover:text-gold-400 transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="py-2.5 text-pine-100/45 hover:text-gold-400 transition-colors">Terms of Service</Link>
-            <Link to="/hipaa" className="py-2.5 text-pine-100/45 hover:text-gold-400 transition-colors">HIPAA</Link>
-          </div>
         </div>
       </div>
     </footer>

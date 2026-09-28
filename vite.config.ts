@@ -6,7 +6,7 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     // ponytail: hardcoded subpath — required for GitHub Pages project sites
-    base: '/pearlsmile-dental/',
+    base: '/ivorycare-dental/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

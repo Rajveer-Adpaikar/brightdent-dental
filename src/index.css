@@ -1,43 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Manrope:wght@400;500;600;700;800&family=Fragment+Mono&display=swap');
 @import "tailwindcss";
 
 /*
-  PearlSmile Dental Care — theme
+  IvoryCare Dental & Implant Centre — theme
 
-  Palette: Pearl & Pine (deliberate break from the teal SaaS look)
-    --ps-pine:   deep clinic-pine green (primary brand)
-    --ps-ocean:  deep navy-mist, used for dark marquee sections
-    --ps-gold:   champagne gold (accent, sparingly)
-    --ps-pearl:  warm pearl paper background
-  Type: Instrument Serif (display) · Figtree (body) · IBM Plex Mono (data)
+  "The consultation ledger": rosewood (deep claret-rose) + ivory + peach.
+  Deliberate break from the green "Pearl & Pine" sibling and teal SaaS.
+    --rosewood:  primary brand, deep rose at hue ~330
+    --peach:     action color — call, book, WhatsApp, accents
+    --ivory:     near-white warm page background
+  Type: Newsreader (display serif) · Manrope (body) · Fragment Mono (data)
 */
 @theme {
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Fragment Mono", ui-monospace, monospace;
 
-  --color-pine-50:  #f2f7f3;
-  --color-pine-100: #e0ede2;
-  --color-pine-200: #c2dcc7;
-  --color-pine-300: #97c2a0;
-  --color-pine-400: #67a175;
-  --color-pine-500: #478856;
-  --color-pine-600: #356c43;
-  --color-pine-700: #2b5838;
-  --color-pine-800: #24472f;
-  --color-pine-900: #1c3a27;
-  --color-pine-950: #0b1f13;
+  --color-rosewood-50:  #fbf3f6;
+  --color-rosewood-100: #f7e3ea;
+  --color-rosewood-200: #edc3d2;
+  --color-rosewood-300: #dd9db5;
+  --color-rosewood-400: #c87292;
+  --color-rosewood-500: #ad5274;
+  --color-rosewood-600: #913c5d;
+  --color-rosewood-700: #762e4b;
+  --color-rosewood-800: #5c243b;
+  --color-rosewood-900: #3d1728;
+  --color-rosewood-950: #230d18;
 
-  --color-pearl: #f6f4ee;
-  --color-gold-300: #eed9a4;
-  --color-gold-400: #e2c078;
-  --color-gold-500: #d3a54f;
-  --color-gold-600: #b8873a;
-  --color-gold-700: #96702c;
+  --color-ivory: #fffdf8;
 
-  --color-ocean-950: #09141d;
-  --color-ocean-900: #0f1f2b;
-  --color-ocean-800: #18303f;
+  --color-peach-100: #ffeede;
+  --color-peach-200: #ffd9b8;
+  --color-peach-300: #fdc08c;
+  --color-peach-400: #f5a463;
+  --color-peach-500: #e88a42;
+  --color-peach-600: #d16f26;
+  --color-peach-700: #b05719;
 }
 
 html {
@@ -46,8 +45,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-pearl);
-  color: var(--color-pine-950);
+  background: var(--color-ivory);
+  color: var(--color-rosewood-950);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -55,21 +54,12 @@ body {
 .font-display {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 /* Data labels — clinical mono */
 .font-data {
   font-family: var(--font-mono);
-}
-
-/* The pearl-smile arch — signature motif: a circular arch line
-   echoing a dental arch / the clinic monogram. Used on hero + dentists. */
-.smile-arch {
-  border: 2px solid var(--color-gold-400);
-  border-bottom: none;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-  position: relative;
 }
 
 /* Reveal-on-view base state: content is visible by default; the motion
@@ -90,11 +80,11 @@ body {
 
 /* Visible keyboard focus */
 :focus-visible {
-  outline: 2px solid var(--color-gold-500);
+  outline: 2px solid var(--color-peach-500);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: var(--color-gold-400);
-  color: var(--color-pine-950);
+  background: var(--color-peach-400);
+  color: var(--color-rosewood-950);
 }

@@ -43,7 +43,6 @@ export default function Header() {
           <a href="#why" className={desktopLink}>Why us</a>
           <a href="#dentists" className={desktopLink}>Our dentists</a>
           <a href="#treatments" className={desktopLink}>Treatments</a>
-          <a href="#gallery" className={desktopLink}>Gallery</a>
           <a href="#faq" className={desktopLink}>FAQ</a>
           <a href="#find-us" className={desktopLink}>Find us</a>
         </nav>
@@ -82,7 +81,6 @@ export default function Header() {
               <a href="#why" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Why us</a>
               <a href="#dentists" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Our dentists</a>
               <a href="#treatments" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Treatments</a>
-              <a href="#gallery" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Gallery</a>
               <a href="#faq" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
               <a href="#find-us" className={mobileLink} onClick={() => setIsMobileMenuOpen(false)}>Find us</a>
               <a href={`tel:${CLINIC.phoneHref}`} className="flex items-center gap-2 text-lg font-medium text-rosewood-800" onClick={() => setIsMobileMenuOpen(false)}>

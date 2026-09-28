@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import WhyUs from './components/WhyUs';
 import Dentists from './components/Dentists';
 import Treatments from './components/Treatments';
-import Gallery from './components/Gallery';
 import Reviews from './components/Reviews';
 import Faq from './components/Faq';
 import FindUs from './components/FindUs';
@@ -22,7 +21,6 @@ function HomePage() {
       <WhyUs />
       <Dentists />
       <Treatments />
-      <Gallery />
       <Reviews />
       <Faq />
       <FindUs />

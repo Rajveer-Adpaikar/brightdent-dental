@@ -1,42 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Manrope:wght@400;500;600;700;800&family=Fragment+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Golos+Text:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 /*
-  IvoryCare Dental & Implant Centre — theme
+  BrightDent Dental & Implant Studio — theme
 
-  "The consultation ledger": rosewood (deep claret-rose) + ivory + peach.
-  Deliberate break from the green "Pearl & Pine" sibling and teal SaaS.
-    --rosewood:  primary brand, deep rose at hue ~330
-    --peach:     action color — call, book, WhatsApp, accents
-    --ivory:     near-white warm page background
-  Type: Newsreader (display serif) · Manrope (body) · Fragment Mono (data)
+  "The azulejo clinic": cobalt azure + plaster white + marigold.
+  A deliberate break from every sibling demo (rosewood/peach IvoryCare,
+  pine-green PearlSmile, and the beige AI default).
+
+    --cobalt:  primary identity — Goan azulejo tile blue (hue ~220)
+    --ink:     deep blue-black ink for text / dark sections
+    --plaster: cool near-white (chroma kept low, NOT cream/sand)
+    --marigold: action color — call, book, WhatsApp, accents (hue ~40)
+  Type: Bricolage Grotesque (display) · Golos Text (body) · JetBrains Mono (data)
 */
 @theme {
-  --font-serif: "Newsreader", ui-serif, Georgia, serif;
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Fragment Mono", ui-monospace, monospace;
+  --font-serif: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Golos Text", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --color-rosewood-50:  #fbf3f6;
-  --color-rosewood-100: #f7e3ea;
-  --color-rosewood-200: #edc3d2;
-  --color-rosewood-300: #dd9db5;
-  --color-rosewood-400: #c87292;
-  --color-rosewood-500: #ad5274;
-  --color-rosewood-600: #913c5d;
-  --color-rosewood-700: #762e4b;
-  --color-rosewood-800: #5c243b;
-  --color-rosewood-900: #3d1728;
-  --color-rosewood-950: #230d18;
+  /* Cobalt azure — the held line through the whole palette */
+  --color-cobalt-50:  #eef4fb;
+  --color-cobalt-100: #dbe7f7;
+  --color-cobalt-200: #b7cbec;
+  --color-cobalt-300: #8babdc;
+  --color-cobalt-400: #5f8ac9;
+  --color-cobalt-500: #3b69b3;
+  --color-cobalt-600: #2a5097;
+  --color-cobalt-700: #1f3f7a;
+  --color-cobalt-800: #182f5e;
+  --color-cobalt-900: #112043;
+  --color-cobalt-950: #0a142e;
 
-  --color-ivory: #fffdf8;
+  /* Ink — deep blue-black for text and dark sections */
+  --color-ink: #0d1830;
 
-  --color-peach-100: #ffeede;
-  --color-peach-200: #ffd9b8;
-  --color-peach-300: #fdc08c;
-  --color-peach-400: #f5a463;
-  --color-peach-500: #e88a42;
-  --color-peach-600: #d16f26;
-  --color-peach-700: #b05719;
+  /* Plaster — cool near-white page background (not cream/sand) */
+  --color-plaster: #fafbfd;
+
+  /* Marigold — the single action color (saffron at hue ~40) */
+  --color-marigold-100: #fdf0d1;
+  --color-marigold-200: #fbe1a3;
+  --color-marigold-300: #f7cd6d;
+  --color-marigold-400: #f2b53f;
+  --color-marigold-500: #e99a1c;
+  --color-marigold-600: #c97c12;
+  --color-marigold-700: #a9600e;
 }
 
 html {
@@ -45,15 +54,15 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-ivory);
-  color: var(--color-rosewood-950);
+  background: var(--color-plaster);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Display headings — editorial serif */
+/* Display headings — Bricolage Grotesque (grotesque, confident) */
 .font-display {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
@@ -80,11 +89,11 @@ body {
 
 /* Visible keyboard focus */
 :focus-visible {
-  outline: 2px solid var(--color-peach-500);
+  outline: 2px solid var(--color-cobalt-500);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: var(--color-peach-400);
-  color: var(--color-rosewood-950);
+  background: var(--color-marigold-300);
+  color: var(--color-ink);
 }

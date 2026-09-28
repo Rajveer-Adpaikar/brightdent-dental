@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import WhyUs from './components/WhyUs';
 import Dentists from './components/Dentists';
 import Treatments from './components/Treatments';
+import Gallery from './components/Gallery';
 import Reviews from './components/Reviews';
 import Faq from './components/Faq';
 import FindUs from './components/FindUs';
@@ -22,6 +23,7 @@ function HomePage() {
       <WhyUs />
       <Dentists />
       <Treatments />
+      <Gallery />
       <Reviews />
       <Faq />
       <FindUs />
@@ -33,7 +35,7 @@ export default function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <BookingProvider>
-        <div className="min-h-screen bg-ivory font-sans text-rosewood-950 selection:bg-peach-400 selection:text-rosewood-950">
+        <div className="min-h-screen bg-plaster font-sans text-ink selection:bg-marigold-300 selection:text-ink">
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />

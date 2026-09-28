@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Home, CalendarCheck, PhoneCall } from 'lucide-react';
 import { useBooking } from '../booking';
 import { CLINIC } from '../config';
-import { Tooth, ToothRow } from './Tooth';
+import { Arch, ArchRow } from './Arch';
 
 export default function NotFound() {
   const { openBooking } = useBooking();
@@ -13,64 +13,75 @@ export default function NotFound() {
   }, []);
 
   return (
-    <section className="relative pt-40 pb-28 overflow-hidden bg-ivory">
-      {/* Rose + peach washes */}
+    <section className="relative pt-40 pb-28 overflow-hidden bg-plaster">
+      {/* Cool cobalt wash */}
       <div
         aria-hidden="true"
-        className="absolute top-[-20%] right-[-10%] w-[46vw] h-[46vw] max-w-[600px] max-h-[600px] rounded-full bg-rosewood-100/60 blur-3xl pointer-events-none"
+        className="absolute top-[-20%] right-[-10%] w-[46vw] h-[46vw] max-w-[600px] max-h-[600px] rounded-full bg-cobalt-100/60 blur-3xl pointer-events-none"
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-[-20%] left-[-10%] w-[40vw] h-[40vw] max-w-[520px] max-h-[520px] rounded-full bg-peach-100/70 blur-3xl pointer-events-none"
+        className="absolute bottom-[-20%] left-[-10%] w-[40vw] h-[40vw] max-w-[520px] max-h-[520px] rounded-full bg-marigold-100/70 blur-3xl pointer-events-none"
       />
 
-      <div className="max-w-3xl mx-auto px-6 relative z-10 text-center">
-        <div className="flex items-center justify-center mb-8">
-          <Tooth className="w-12 h-14 text-rosewood-200" />
-        </div>
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        {/* Placard / label-style card — off-center, bordered, like a Goan bottle label */}
+        <div className="relative border-2 border-cobalt-200 rounded-none p-10 lg:p-14 bg-white shadow-xl shadow-ink/5 max-w-2xl mx-auto">
+          {/* Corner ticks */}
+          <span aria-hidden="true" className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-cobalt-300" />
+          <span aria-hidden="true" className="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-cobalt-300" />
+          <span aria-hidden="true" className="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-cobalt-300" />
+          <span aria-hidden="true" className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-cobalt-300" />
 
-        <p className="font-data text-xs uppercase tracking-[0.3em] text-rosewood-500 mb-6">
-          Error 404 · IVC-404 — not in the ledger
-        </p>
+          <div className="flex justify-center mb-6">
+            <Arch className="w-11 h-13 text-cobalt-300" />
+          </div>
 
-        <h1 className="font-display text-7xl lg:text-8xl text-rosewood-950 leading-[1.02] mb-6">
-          This page
-          <br />
-          <em className="text-rosewood-600 italic">isn&rsquo;t on file.</em>
-        </h1>
+          <p className="font-data text-xs uppercase tracking-[0.3em] text-cobalt-500 mb-4 text-center">
+            Goa · 18.52°N / 73.86°E · GPOG-404
+          </p>
 
-        <p className="text-lg text-rosewood-900/70 leading-relaxed max-w-lg mx-auto mb-10">
-          The page you&rsquo;re looking for isn&rsquo;t in our records. It may have moved,
-          or the link may have a typo — let&rsquo;s get you back to the right chair.
-        </p>
+          <h1 className="font-display text-7xl lg:text-8xl text-ink leading-[0.95] text-center mb-6">
+            {CLINIC.city.split(' ')[0]}
+            <span className="text-marigold-500">/</span>404
+          </h1>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-rosewood-800 text-ivory font-bold text-lg hover:bg-rosewood-700 transition-colors"
-          >
-            <Home className="w-5 h-5" />
-            Back to home
-          </Link>
-          <button
-            onClick={() => openBooking()}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-rosewood-900 font-bold text-lg border border-rosewood-200 hover:border-rosewood-300 hover:bg-white/70 transition-colors"
-          >
-            <CalendarCheck className="w-5 h-5" />
-            Book an appointment
-          </button>
-        </div>
+          <p className="text-center text-ink/70 text-lg leading-relaxed mb-8 max-w-md mx-auto">
+            This page isn&rsquo;t part of the tour. It may have moved, or the link may have a typo
+            — either way, the clinic&rsquo;s the same as always. Let&rsquo;s get you back to the right chair.
+          </p>
 
-        <p className="mt-10 text-sm text-rosewood-900/60">
-          Or call the clinic directly —{' '}
-          <a href={`tel:${CLINIC.phoneHref}`} className="inline-flex items-center gap-1.5 font-semibold text-rosewood-700 hover:underline">
-            <PhoneCall className="w-3.5 h-3.5" />
-            {CLINIC.phone}
-          </a>
-        </p>
+          {/* Divider */}
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <span className="h-px w-12 bg-cobalt-200" aria-hidden="true" />
+            <ArchRow className="opacity-80" />
+            <span className="h-px w-12 bg-cobalt-200" aria-hidden="true" />
+          </div>
 
-        <div className="mt-14 flex justify-center">
-          <ToothRow />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md bg-cobalt-700 text-plaster font-bold text-lg hover:bg-cobalt-600 transition-colors"
+            >
+              <Home className="w-5 h-5" />
+              Back to home
+            </Link>
+            <button
+              onClick={() => openBooking()}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md bg-white text-ink font-bold text-lg border border-cobalt-200 hover:border-cobalt-300 hover:bg-white/70 transition-colors"
+            >
+              <CalendarCheck className="w-5 h-5" />
+              Book an appointment
+            </button>
+          </div>
+
+          <p className="mt-8 text-center text-sm text-ink/60">
+            Or call the clinic directly —{' '}
+            <a href={`tel:${CLINIC.phoneHref}`} className="inline-flex items-center gap-1.5 font-semibold text-cobalt-700 hover:underline">
+              <PhoneCall className="w-3.5 h-3.5" />
+              {CLINIC.phone}
+            </a>
+          </p>
         </div>
       </div>
     </section>

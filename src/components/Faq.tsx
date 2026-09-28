@@ -9,13 +9,13 @@ export default function Faq() {
         <div className="flex flex-col lg:flex-row lg:gap-20">
           {/* Left heading */}
           <div className="lg:w-1/3 mb-10 lg:mb-0">
-            <p className="font-data text-xs uppercase tracking-[0.28em] text-rosewood-500 mb-4">FAQs</p>
-            <h2 className="font-display text-4xl lg:text-5xl text-rosewood-950 leading-[1.05]">
+            <p className="font-data text-xs uppercase tracking-[0.28em] text-cobalt-500 mb-4">FAQs</p>
+            <h2 className="font-display text-4xl lg:text-5xl text-ink leading-[1.05]">
               Common questions,
               <br />
-              <em className="text-rosewood-600 italic">straight answers.</em>
+              <em className="text-cobalt-600 not-italic">straight answers.</em>
             </h2>
-            <p className="mt-6 text-sm leading-relaxed text-rosewood-900/70">
+            <p className="mt-6 text-sm leading-relaxed text-ink/70">
               What patients usually ask before their first visit. Anything else —
               call or WhatsApp us directly.
             </p>
@@ -30,13 +30,13 @@ export default function Faq() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: idx * 0.05, duration: 0.4, ease: 'easeOut' }}
-                className="group border-b border-rosewood-100"
+                className="group border-b border-cobalt-100"
               >
                 <summary className="flex items-center justify-between gap-4 cursor-pointer py-5 pr-2 list-none">
-                  <span className="font-display text-lg lg:text-xl text-rosewood-950 leading-snug">{faq.q}</span>
-                  <Plus className="w-5 h-5 shrink-0 text-rosewood-400 group-open:rotate-45 transition-transform" />
+                  <span className="font-display text-lg lg:text-xl text-ink leading-snug">{faq.q}</span>
+                  <Plus className="w-5 h-5 shrink-0 text-cobalt-400 group-open:rotate-45 transition-transform" />
                 </summary>
-                <p className="pb-6 pr-10 text-sm leading-relaxed text-rosewood-900/70">{faq.a}</p>
+                <p className="pb-6 pr-10 text-sm leading-relaxed text-ink/70">{faq.a}</p>
               </motion.details>
             ))}
           </div>

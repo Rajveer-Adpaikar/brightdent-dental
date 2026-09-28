@@ -4,20 +4,17 @@ import { useBooking } from '../booking';
 import { CLINIC } from '../config';
 import { waLink } from '../lib';
 import { WhatsAppIcon } from './icons';
+import { Arch, ArchRow } from './Arch';
 
 export default function Hero() {
   const { openBooking } = useBooking();
 
   return (
-    <section className="relative pt-28 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-ivory">
-      {/* Soft rose wash + peach glow */}
+    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-plaster">
+      {/* Cool cobalt top wash */}
       <div
         aria-hidden="true"
-        className="absolute top-0 right-0 w-[52vw] h-[52vw] max-w-[720px] max-h-[720px] rounded-full bg-rosewood-100/60 blur-3xl pointer-events-none"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-[-20%] left-[-10%] w-[46vw] h-[46vw] max-w-[560px] max-h-[560px] rounded-full bg-peach-100/70 blur-3xl pointer-events-none"
+        className="absolute top-0 right-0 w-[52vw] h-[52vw] max-w-[720px] max-h-[720px] rounded-full bg-cobalt-100/60 blur-3xl pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -29,32 +26,32 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-rosewood-50 border border-rosewood-100 text-rosewood-800 text-xs font-semibold rounded-full mb-7">
-              <MapPin className="w-3.5 h-3.5 text-rosewood-500" />
-              {CLINIC.city} · {CLINIC.addressShort}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-cobalt-50 border border-cobalt-100 text-cobalt-800 text-xs font-semibold rounded-md mb-7">
+              <MapPin className="w-3.5 h-3.5 text-cobalt-500" />
+              {CLINIC.city}, {CLINIC.state} · {CLINIC.addressShort}
             </div>
 
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-[5.25rem] leading-[1.02] text-rosewood-950 mb-6">
-              Advanced Dentistry.
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-[5rem] leading-[1.02] text-ink mb-6">
+              Modern Dentistry.
               <br />
-              <em className="text-rosewood-600 italic">Personalised Care.</em>
+              <em className="text-cobalt-600 not-italic">Healthier Smiles.</em>
             </h1>
-            <p className="text-lg lg:text-xl text-rosewood-900/75 mb-9 leading-relaxed max-w-xl">
-              Implants, root canals &amp; cosmetic dentistry under one roof in Bengaluru —
-              with three specialists, one treatment plan, and a desk that picks up the phone.
+            <p className="text-lg lg:text-xl text-ink/75 mb-9 leading-relaxed max-w-xl">
+              Implants, root canals &amp; cosmetic dentistry on 18th June Road in Panaji —
+              three specialists, one treatment plan, and a WhatsApp line that actually answers.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
               <button
                 onClick={() => openBooking()}
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-rosewood-800 text-ivory font-bold text-lg hover:bg-rosewood-700 transition-colors flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-8 py-4 rounded-md bg-cobalt-700 text-plaster font-bold text-lg hover:bg-cobalt-600 transition-colors flex items-center justify-center gap-2 group"
               >
                 Book an appointment
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <a
                 href="#treatments"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-rosewood-900 font-bold text-lg border border-rosewood-200 hover:border-rosewood-300 hover:bg-white/70 transition-colors flex items-center justify-center"
+                className="w-full sm:w-auto px-8 py-4 rounded-md bg-white text-ink font-bold text-lg border border-cobalt-200 hover:border-cobalt-300 hover:bg-white/70 transition-colors flex items-center justify-center"
               >
                 View treatments
               </a>
@@ -64,16 +61,16 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href={`tel:${CLINIC.phoneHref}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-peach-500 text-rosewood-950 font-bold hover:bg-peach-400 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-marigold-500 text-ink font-bold hover:bg-marigold-400 transition-colors"
               >
                 <PhoneCall className="w-5 h-5" />
                 Emergency? Call now
               </a>
               <a
-                href={waLink(CLINIC.whatsapp, 'Hello IvoryCare — I need an urgent appointment.')}
+                href={waLink(CLINIC.whatsapp, 'Hello BrightDent — I need an urgent appointment.')}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-rosewood-950 text-ivory font-semibold hover:bg-rosewood-800 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-ink text-plaster font-semibold hover:bg-cobalt-900 transition-colors"
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 WhatsApp us
@@ -81,47 +78,65 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right — consultation ledger card */}
+          {/* Right — the ticket stub / azulejo panel */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
             className="relative"
           >
-            <div className="bg-white rounded-2xl shadow-xl shadow-rosewood-950/10 border border-rosewood-100 p-7 lg:p-9">
-              <div className="flex items-center justify-between mb-6">
-                <p className="font-data text-[10px] uppercase tracking-[0.3em] text-rosewood-500">
-                  Consultation ledger · Est. 2011
+            {/* Azulejo border panel behind the card */}
+            <div
+              aria-hidden="true"
+              className="absolute -inset-2.5 rounded-2xl border-4 border-cobalt-200/70"
+            >
+              <Arch className="absolute top-2 left-2 w-6 h-7 text-cobalt-300" />
+              <Arch className="absolute top-2 right-2 w-6 h-7 text-cobalt-300" />
+              <Arch className="absolute bottom-2 left-2 w-6 h-7 text-cobalt-300" />
+              <Arch className="absolute bottom-2 right-2 w-6 h-7 text-cobalt-300" />
+            </div>
+
+            <div className="relative bg-white rounded-xl shadow-xl shadow-ink/10 border border-cobalt-100 p-7 lg:p-9">
+              {/* Ticket header */}
+              <div className="flex items-center justify-between mb-5">
+                <p className="font-data text-[10px] uppercase tracking-[0.3em] text-cobalt-500">
+                  Appointment · Seat No.
                 </p>
-                <span className="font-data text-xs text-peach-600">IVC-{new Date().getFullYear()}</span>
+                <span className="font-data text-xs text-cobalt-700 font-semibold">BDP-{new Date().getFullYear()}</span>
               </div>
 
-              {/* Appointment slots */}
+              {/* Perforation */}
+              <div aria-hidden="true" className="border-t border-dashed border-cobalt-200 mb-6" />
+
+              {/* Doctor slots */}
               <div className="space-y-3">
                 {CLINIC.dentists.map((d) => (
-                  <div key={d.name} className="flex items-center gap-4 rounded-xl border border-rosewood-100 bg-ivory px-4 py-3.5 group">
-                    <span className="font-data text-[11px] text-rosewood-400 shrink-0">{d.initials}</span>
+                  <div key={d.name} className="flex items-center gap-4 rounded-lg border border-cobalt-100 bg-cobalt-50/40 px-4 py-3 group">
+                    <span className="font-data text-[11px] font-bold text-cobalt-500 shrink-0">{d.initials}</span>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-semibold text-rosewood-950 truncate">{d.name}</p>
-                      <p className="text-xs text-rosewood-900/60 truncate">{d.specialty}</p>
+                      <p className="text-sm font-semibold text-ink truncate">{d.name}</p>
+                      <p className="text-xs text-ink/60 truncate">{d.specialty}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
+              {/* Perforation */}
+              <div aria-hidden="true" className="border-t border-dashed border-cobalt-200 my-6" />
+
               {/* Hours strip */}
-              <div className="mt-6 pt-5 border-t border-rosewood-100 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-xs font-medium text-rosewood-900/70">
-                  <MapPin className="w-3.5 h-3.5 text-peach-500" />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-xs font-medium text-ink/70">
+                  <MapPin className="w-3.5 h-3.5 text-marigold-600" />
                   {CLINIC.addressShort}
                 </div>
                 <div className="text-right">
-                  <p className="font-data text-xs text-rosewood-900/70">Mon–Fri 9–8 · Sat 9–6 · Sun 10–2</p>
+                  <p className="font-data text-xs text-ink/70">Mon–Fri 9–8 · Sat 9–5 · Sun 10–2</p>
                 </div>
               </div>
 
-              <p className="text-[11px] text-rosewood-900/45 mt-4 leading-relaxed">
-                Demo clinic for illustration. Emergency appointments available during hours.
+              <p className="text-[11px] text-ink/45 mt-4 leading-relaxed">
+                Demo clinic for illustration. Emergency appointments available during clinic hours.
               </p>
             </div>
 
@@ -130,10 +145,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5, ease: 'easeOut' }}
-              className="absolute -top-5 -right-3 sm:-right-5 z-10 bg-peach-100 text-rosewood-950 px-4 py-2.5 rounded-xl shadow-lg"
+              className="absolute -top-5 -right-3 sm:-right-5 z-10 bg-marigold-100 text-ink px-4 py-2.5 rounded-lg shadow-lg flex items-center gap-2"
             >
-              <span className="font-data text-lg font-semibold">30,000+</span>
-              <span className="text-xs font-medium ml-2">procedures</span>
+              <span className="font-data text-lg font-semibold">28,000+</span>
+              <span className="text-xs font-medium">procedures</span>
+              <ArchRow className="ml-1" />
             </motion.div>
           </motion.div>
         </div>
